@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/nappy-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/nappy-{{ version }}.tar.gz
   sha256: b70c562131a470c17246d7b7dcf6c21597e7067534b45d1207e31252c8725926
 
 build:
@@ -16,7 +16,7 @@ build:
     - nc2csv=nappy.script.nc2csv:nc2csv
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -27,7 +27,7 @@ requirements:
     - cftime
     - netcdf4
     - numpy
-    - python >=3.6
+    - python {{ python_min }}
     - scipy
     - xarray
   run:
@@ -35,7 +35,7 @@ requirements:
     - cftime
     - netcdf4
     - {{ pin_compatible('numpy') }}
-    - python >=3.6
+    - python >={{ python_min }}
     - scipy
     - xarray
 
@@ -52,6 +52,7 @@ test:
     - nc2csv --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/cedadev/nappy
