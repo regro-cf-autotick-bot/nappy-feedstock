@@ -22,6 +22,7 @@ requirements:
   build:
   host:
     - pip
+    - setuptools
     - pypandoc
     - cf_xarray
     - cftime
