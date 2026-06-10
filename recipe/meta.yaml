@@ -21,10 +21,10 @@ build:
 requirements:
   build:
     - pip
-    - setuptools
+    - setuptools <82.0.0
   host:
     - pip
-    - setuptools
+    - setuptools <82.0.0
     - pypandoc
     - cf_xarray
     - cftime
@@ -55,7 +55,7 @@ test:
     - nc2csv --help
   requires:
     - pip
-    - setuptools
+    - setuptools <82.0.0
     - python {{ python_min }}
 
 about:
