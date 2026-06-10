@@ -20,6 +20,8 @@ build:
 
 requirements:
   build:
+    - pip
+    - setuptools
   host:
     - pip
     - setuptools
@@ -53,6 +55,7 @@ test:
     - nc2csv --help
   requires:
     - pip
+    - setuptools
     - python {{ python_min }}
 
 about:
